@@ -11,6 +11,7 @@ class Projects(models.Model):
     donors = models.IntegerField()
     days_left = models.IntegerField()
     about_project = models.TextField()
+    amount_goal = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.ForeignKey('Categories', on_delete=models.CASCADE, related_name='projects')
     slug = models.SlugField(null=True, blank=True)
 

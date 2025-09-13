@@ -22,7 +22,7 @@
                     <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
                         <div>
                             <div style="font-size: 1.5rem; font-weight: bold;">£{{ project.funded_amount|floatformat:0 }}</div>
-                            <div>raised of £50,000 goal</div>
+                            <div>raised of £{{ project.amount_goal|floatformat:0 }}</div>
                         </div>
                         <div>
                             <div style="font-size: 1.5rem; font-weight: bold;">{{ project.donors }}</div>
