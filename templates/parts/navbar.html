@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowdfunding</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><i class="fas fa-hand-holding-heart"></i>EgyptFund</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">How it Works</a></li>
+                </ul>
+                <div class="user-actions" id="user-actions">
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <div class="user-profile" id="user-profile" style="display: none;">
+                    <img src="https://placehold.co/40x40/4361ee/ffffff?text=U" alt="User">
+                    <span>FAROUK</span>
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <a href="profile.html">Profile</a>
+                        <a href="projects.html">My Projects</a>
+                        <a href="#">My Donations</a>
+                        <a href="#" onclick="logout()">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
