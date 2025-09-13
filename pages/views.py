@@ -27,3 +27,8 @@ def project_detail(request, slug):
     }
     return render(request, 'pages/project_detail.html', context)
 
+
+# create project page
+def create_project(request):
+    return render(request, 'pages/create_project.html')
+

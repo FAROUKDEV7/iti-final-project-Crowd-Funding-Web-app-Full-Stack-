@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+import datetime
 # Create your models here.
 
 class Projects(models.Model):
@@ -12,6 +13,8 @@ class Projects(models.Model):
     days_left = models.IntegerField()
     about_project = models.TextField()
     amount_goal = models.DecimalField(max_digits=10, decimal_places=2)
+    start_date = models.DateField(auto_now_add=True)
+    end_date = models.DateField(blank=True, null=True)
     category = models.ForeignKey('Categories', on_delete=models.CASCADE, related_name='projects')
     slug = models.SlugField(null=True, blank=True)
 
