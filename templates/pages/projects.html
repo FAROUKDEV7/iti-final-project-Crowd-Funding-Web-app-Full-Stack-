@@ -41,102 +41,27 @@
             </div>
             
             <div class="projects-grid">
-                <div class="card project-card" onclick="showPage('project-detail')">
+                {% for project in projects %}
+                <div class="card project-card">
                     <div class="project-image">
-                        <img src="https://placehold.co/600x400/4361ee/ffffff?text=Tech+Innovation" alt="Project Image">
+                        <a href="">
+                        <img src="{{ project.image.url }}" alt="Project Image">
+                        </a>
+
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Solar-Powered Irrigation for Farms</h3>
-                        <p class="project-description">Helping Egyptian farmers reduce costs with sustainable technology</p>
+                        <h3 class="project-title">{{ project.title }}</h3>
+                        <p class="project-description">{{ project.description }}</p>
                         <div class="project-progress">
-                            <div class="progress-bar" style="width: 75%;"></div>
+                            <div class="progress-bar" style="width: {{  project.funded_amount|floatformat:0 }}%;"></div>
                         </div>
                         <div class="project-details">
-                            <span>75% funded</span>
-                            <span>£42,500 raised</span>
+                            <span>{{ project.funded_amount|floatformat:0 }}% funded</span>
+                            <span>£{{ project.donation_amount|floatformat:0 }} raised</span>
                         </div>
                     </div>
                 </div>
-                <div class="card project-card" onclick="showPage('project-detail')">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/3a0ca3/ffffff?text=Education" alt="Project Image">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Digital Library for Rural Schools</h3>
-                        <p class="project-description">Providing educational resources to underserved communities</p>
-                        <div class="project-progress">
-                            <div class="progress-bar" style="width: 45%;"></div>
-                        </div>
-                        <div class="project-details">
-                            <span>45% funded</span>
-                            <span>£22,500 raised</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card project-card" onclick="showPage('project-detail')">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/f72585/ffffff?text=Art+%26+Culture" alt="Project Image">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Preserving Egyptian Handicrafts</h3>
-                        <p class="project-description">Supporting local artisans and preserving cultural heritage</p>
-                        <div class="project-progress">
-                            <div class="progress-bar" style="width: 90%;"></div>
-                        </div>
-                        <div class="project-details">
-                            <span>90% funded</span>
-                            <span>£45,000 raised</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card project-card" onclick="showPage('project-detail')">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/4cc9f0/ffffff?text=Health" alt="Project Image">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Mobile Health Clinic for Rural Areas</h3>
-                        <p class="project-description">Bringing healthcare to underserved communities in Egypt</p>
-                        <div class="project-progress">
-                            <div class="progress-bar" style="width: 60%;"></div>
-                        </div>
-                        <div class="project-details">
-                            <span>60% funded</span>
-                            <span>£30,000 raised</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card project-card" onclick="showPage('project-detail')">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/ffd166/ffffff?text=Environment" alt="Project Image">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Cleaning the Nile River</h3>
-                        <p class="project-description">Initiative to remove plastic waste from the Nile River</p>
-                        <div class="project-progress">
-                            <div class="progress-bar" style="width: 35%;"></div>
-                        </div>
-                        <div class="project-details">
-                            <span>35% funded</span>
-                            <span>£17,500 raised</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card project-card" onclick="showPage('project-detail')">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/ef476f/ffffff?text=Food" alt="Project Image">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Organic Farming Initiative</h3>
-                        <p class="project-description">Promoting organic farming practices in Upper Egypt</p>
-                        <div class="project-progress">
-                            <div class="progress-bar" style="width: 80%;"></div>
-                        </div>
-                        <div class="project-details">
-                            <span>80% funded</span>
-                            <span>£40,000 raised</span>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             
             <div style="text-align: center; margin-top: 40px;">

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Project Detail Page -->
+    <div id="project-detail" class="page">
+        <div class="container project-detail">
+            <div class="project-slider">
+                <img src="https://placehold.co/1000x400/4361ee/ffffff?text=Project+Gallery+Slider" alt="Project Image">
+            </div>
+            
+            <div class="project-info">
+                <div class="project-main">
+                    <h1>Solar-Powered Irrigation for Farms</h1>
+                    <p class="project-description" style="margin: 20px 0; font-size: 1.1rem;">
+                        This project aims to help Egyptian farmers reduce operational costs by implementing solar-powered irrigation systems. 
+                        By harnessing Egypt's abundant sunlight, we can provide sustainable and cost-effective irrigation solutions to farming 
+                        communities across the country.
+                    </p>
+                    
+                    <div class="project-progress" style="height: 12px; margin: 30px 0;">
+                        <div class="progress-bar" style="width: 75%;"></div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">£42,500</div>
+                            <div>raised of £50,000 goal</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">125</div>
+                            <div>donors</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">15</div>
+                            <div>days left</div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem;" onclick="showPage('donation')">Donate Now</button>
+                    
+                    <div style="margin-top: 40px;">
+                        <h2>About this project</h2>
+                        <p style="margin: 20px 0;">
+                            Agriculture is a vital sector in Egypt's economy, but many farmers struggle with the high costs of diesel-powered 
+                            irrigation systems. Our solar-powered irrigation solution offers a sustainable alternative that reduces operating 
+                            costs by up to 70% while being environmentally friendly.
+                        </p>
+                        <p style="margin: 20px 0;">
+                            With your support, we can install these systems in 50 farms across Upper Egypt, directly benefiting over 200 families 
+                            and reducing carbon emissions by an estimated 120 tons annually.
+                        </p>
+                    </div>
+                    
+                    <div class="comments-section">
+                        <h2>Comments (12)</h2>
+                        <div class="comment">
+                            <div class="comment-header">
+                                <img src="https://placehold.co/40x40/3a0ca3/ffffff?text=A" alt="User">
+                                <div>
+                                    <div>Ahmed Mohamed</div>
+                                    <div style="font-size: 0.8rem; color: var(--gray);">3 days ago</div>
+                                </div>
+                            </div>
+                            <p>This is an amazing initiative! How can I get involved beyond donating?</p>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-header">
+                                <img src="https://placehold.co/40x40/f72585/ffffff?text=S" alt="User">
+                                <div>
+                                    <div>Sara Ali</div>
+                                    <div style="font-size: 0.8rem; color: var(--gray);">5 days ago</div>
+                                </div>
+                            </div>
+                            <p>I've seen similar projects in other regions. The impact on farmers' livelihoods is tremendous!</p>
+                        </div>
+                        
+                        <div style="margin-top: 30px;">
+                            <h3>Leave a comment</h3>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="4" placeholder="Share your thoughts..."></textarea>
+                            </div>
+                            <button class="btn btn-primary">Post Comment</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-sidebar">
+                    <h3>Project Creator</h3>
+                    <div style="display: flex; align-items: center; margin: 20px 0;">
+                        <img src="https://placehold.co/50x50/4361ee/ffffff?text=M" alt="Creator" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
+                        <div>
+                            <div style="font-weight: bold;">Mohamed Hassan</div>
+                            <div>Agricultural Engineer</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;">Similar Projects</h3>
+                    <div style="margin-top: 20px;">
+                        <div style="display: flex; margin-bottom: 15px;">
+                            <img src="https://placehold.co/80x80/3a0ca3/ffffff?text=P" alt="Project" style="width: 80px; height: 80px; border-radius: 8px; margin-right: 15px;">
+                            <div>
+                                <div style="font-weight: bold;">Wind Power for Rural Areas</div>
+                                <div>45% funded</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; margin-bottom: 15px;">
+                            <img src="https://placehold.co/80x80/f72585/ffffff?text=P" alt="Project" style="width: 80px; height: 80px; border-radius: 8px; margin-right: 15px;">
+                            <div>
+                                <div style="font-weight: bold;">Sustainable Farming Education</div>
+                                <div>80% funded</div>
+                            </div>
+                        </div>
+                        <div style="display: flex;">
+                            <img src="https://placehold.co/80x80/4cc9f0/ffffff?text=P" alt="Project" style="width: 80px; height: 80px; border-radius: 8px; margin-right: 15px;">
+                            <div>
+                                <div style="font-weight: bold;">Water Conservation Systems</div>
+                                <div>65% funded</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;">Share this project</h3>
+                    <div class="social-links" style="margin-top: 15px;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
+{% endblock content %}

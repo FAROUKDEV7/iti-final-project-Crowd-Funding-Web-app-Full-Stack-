@@ -20,3 +20,10 @@ def projects(request):
     }
     return render(request, 'pages/projects.html', context)
 
+# Project details page
+def project_detail(request, id):
+    context = {
+        'project': Projects.objects.get(id=id),
+    }
+    return render(request, 'pages/project_detail.html', context)
+
