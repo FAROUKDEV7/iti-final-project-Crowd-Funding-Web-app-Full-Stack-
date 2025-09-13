@@ -11,7 +11,7 @@
                     <h1>Fund Your Dreams, Empower Egypt</h1>
                     <p>Join Egypt's leading crowdfunding platform to bring innovative projects to life or support ideas that matter to you.</p>
                     <a href="create_project.html" class="btn btn-primary">Start a Project</a>
-                    <a href="projects.html" class="btn btn-outline" style="background-color: rgba(255, 255, 255, 0.2); color: white; border-color: white;">Explore Projects</a>
+                    <a href="{% url "projects" %}" class="btn btn-outline" style="background-color: rgba(255, 255, 255, 0.2); color: white; border-color: white;">Explore Projects</a>
                 </div>
             </div>
         </section>
@@ -54,7 +54,7 @@
                     {% for project in projects %}
                     <div class="card project-card" >
                         <div class="project-image">
-                            <a href="project_detail.html">
+                            <a href="{% url "project_detail" project.id %}">
                                 <img src="{{ project.image.url }}" alt="Project Image">
                             </a>
                         </div>
@@ -73,7 +73,7 @@
                     {% endfor %}
                 </div>
                 <div style="text-align: center; margin-top: 40px;">
-                    <a href="projects.html" class="btn btn-primary">View All Projects</a>
+                    <a href="{% url "projects" %}" class="btn btn-primary">View All Projects</a>
                 </div>
             </div>
         </section>

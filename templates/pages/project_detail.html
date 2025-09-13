@@ -5,45 +5,41 @@
     <div id="project-detail" class="page">
         <div class="container project-detail">
             <div class="project-slider">
-                <img src="https://placehold.co/1000x400/4361ee/ffffff?text=Project+Gallery+Slider" alt="Project Image">
+                <img src="{{ project.image.url }}" alt="Project Image">
             </div>
             
             <div class="project-info">
                 <div class="project-main">
-                    <h1>Solar-Powered Irrigation for Farms</h1>
+                    <h1>{{ project.title }}</h1>
                     <p class="project-description" style="margin: 20px 0; font-size: 1.1rem;">
-                        This project aims to help Egyptian farmers reduce operational costs by implementing solar-powered irrigation systems. 
-                        By harnessing Egypt's abundant sunlight, we can provide sustainable and cost-effective irrigation solutions to farming 
-                        communities across the country.
+                        {{ project.description }}
                     </p>
                     
                     <div class="project-progress" style="height: 12px; margin: 30px 0;">
-                        <div class="progress-bar" style="width: 75%;"></div>
+                        <div class="progress-bar" style="width: {{ project.funded_amount|floatformat:0 }}%;"></div>
                     </div>
                     
                     <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
                         <div>
-                            <div style="font-size: 1.5rem; font-weight: bold;">£42,500</div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">£{{ project.funded_amount|floatformat:0 }}</div>
                             <div>raised of £50,000 goal</div>
                         </div>
                         <div>
-                            <div style="font-size: 1.5rem; font-weight: bold;">125</div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">{{ project.donor_count }}</div>
                             <div>donors</div>
                         </div>
                         <div>
-                            <div style="font-size: 1.5rem; font-weight: bold;">15</div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">{{ project.days_left }}</div>
                             <div>days left</div>
                         </div>
                     </div>
                     
-                    <button class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem;" onclick="showPage('donation')">Donate Now</button>
+                    {% comment %} <button class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem;" onclick="showPage('donation')">Donate Now</button> {% endcomment %}
                     
                     <div style="margin-top: 40px;">
                         <h2>About this project</h2>
                         <p style="margin: 20px 0;">
-                            Agriculture is a vital sector in Egypt's economy, but many farmers struggle with the high costs of diesel-powered 
-                            irrigation systems. Our solar-powered irrigation solution offers a sustainable alternative that reduces operating 
-                            costs by up to 70% while being environmentally friendly.
+                            {{ project.about_project }}
                         </p>
                         <p style="margin: 20px 0;">
                             With your support, we can install these systems in 50 farms across Upper Egypt, directly benefiting over 200 families 

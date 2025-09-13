@@ -12,11 +12,11 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo"><i class="fas fa-hand-holding-heart"></i>EgyptFund</a>
+                <a href="{% url "index" %}" class="logo"><i class="fas fa-hand-holding-heart"></i>EgyptFund</a>
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="#">Categories</a></li>
+                    <li><a href="{% url "index" %}">Home</a></li>
+                    <li><a href="{% url "projects" %}">Projects</a></li>
+
                     <li><a href="#">How it Works</a></li>
                 </ul>
                 <div class="user-actions" id="user-actions">
