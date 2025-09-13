@@ -42,9 +42,9 @@
             
             <div class="projects-grid">
                 {% for project in projects %}
-                <div class="card project-card">
+                <div class="card project-card" style="{% if forloop.counter > 6 %}display:none;{% endif %}">
                     <div class="project-image">
-                        <a href="{% url "project_detail" project.id %}">
+                        <a href="{% url "project_detail" project.slug %}">
                             <img src="{{ project.image.url }}" alt="Project Image">
                         </a>
 
@@ -65,10 +65,19 @@
             </div>
             
             <div style="text-align: center; margin-top: 40px;">
-                <button class="btn btn-outline">Load More Projects</button>
+                <button class="btn btn-outline" id="viewAllBtn">Load More Projects</button>
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('viewAllBtn').addEventListener('click', function() {
+            document.querySelectorAll('.project-card').forEach(function(card) {
+                card.style.display = 'block';
+            });
+            this.style.display = 'none'; // اخفي الزرار بعد ما يضغط
+        });
+    </script>
+
 
     <script src="js/main.js"></script>
 </body>

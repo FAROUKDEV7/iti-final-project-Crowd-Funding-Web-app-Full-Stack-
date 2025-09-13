@@ -21,9 +21,9 @@ def projects(request):
     return render(request, 'pages/projects.html', context)
 
 # Project details page
-def project_detail(request, id):
+def project_detail(request, slug):
     context = {
-        'project': Projects.objects.get(id=id),
+        'project': Projects.objects.get(slug=slug),
     }
     return render(request, 'pages/project_detail.html', context)
 
