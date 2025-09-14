@@ -15,10 +15,15 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     image_profile = models.ImageField(upload_to='profiles/%Y/%m/%d/', null=True, blank=True)
+    email = models.EmailField()
     country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True ,blank=True)
     city = models.CharField(max_length=50) 
     phone = models.CharField(max_length=15)
     birth_date = models.DateField(null=True, blank=True)
+
+    
+    def __str__(self):
+        return str(self.user)
 
 
 @receiver(post_save, sender=User)

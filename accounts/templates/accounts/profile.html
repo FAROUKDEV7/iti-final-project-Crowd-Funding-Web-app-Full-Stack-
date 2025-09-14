@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <!-- Profile Page -->
+    <div id="profile" class="page">
+        <div class="container profile">
+            <div class="profile-header">
+                <img src="{{profile.image_profile.url}}" alt="User" class="profile-avatar">
+                <div class="profile-info">
+                    <h2>{{profile}}</h2>
+                    <p>{{profile.country}} , {{profile.city}}</p>                 
+                </div>
+            </div>
+            
+            <div class="profile-stats">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Projects Created</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Projects Supported</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">£2,450</div>
+                    <div class="stat-label">Total Donated</div>
+                </div>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-nav">
+                    <a href="#" class="active">Profile Information</a>
+                    <a href="#" >My Projects</a>
+                    <a href="#" >My Donations</a>
+                    <a href="#">Account Settings</a>
+                </div>
+                
+                <div class="profile-content-area">
+                    <h2>Profile Information</h2>
+                    <form style="margin-top: 30px;">
+                        <div class="form-group">
+                            <label for="profile-first-name">First Name</label>
+                            <input type="text" class="form-control" id="profile-first-name" value="{{profile.first_name}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-last-name">Last Name</label>
+                            <input type="text" class="form-control" id="profile-last-name" value="{{profile.last_name}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-email">Email</label>
+                            <input type="email" class="form-control" id="profile-email" value="{{profile.email}}" disabled>
+                            <small class="form-text">Email cannot be changed</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-phone">Mobile Phone</label>
+                            <input type="tel" class="form-control" id="profile-phone" value="{{profile.phone}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-birthdate">Birthdate</label>
+                            <input type="date" class="form-control" id="profile-birthdate" value="{{profile.birth_date}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-facebook">Facebook Profile</label>
+                            <input type="url" class="form-control" id="profile-facebook" placeholder="Enter your Facebook profile URL">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-country">Country</label>
+                            <select class="form-control" id="profile-country">
+                                <option>{{profile.country}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-picture">Profile Picture</label>
+                            <input type="file" class="form-control" id="profile-picture">
+                        </div>
+                        <button type="button" class="btn btn-primary">Save Changes</button>
+                    </form>
+                    
+                    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--light-gray);">
+                        <h3 style="color: var(--danger);">Danger Zone</h3>
+                        <p>Once you delete your account, there is no going back. Please be certain.</p>
+                        <button type="button" class="btn btn-outline" style="border-color: var(--danger); color: var(--danger); margin-top: 15px;">Delete Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
