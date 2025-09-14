@@ -6,3 +6,6 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = Projects
         fields = ['title', 'description','category','image','funded_amount', 'donatuion_amount','about_project', 'days_left']
+        widgets = {
+            'category': forms.Select(attrs={'class': 'form-select'}),
+        }
