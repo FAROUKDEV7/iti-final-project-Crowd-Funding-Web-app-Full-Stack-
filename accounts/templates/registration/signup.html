@@ -1,0 +1,12 @@
+{% extends "base_generic_signup.html" %}
+{% load django_bootstrap5 %}
+
+{% block body %}
+
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="SignUp" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+    </form>
+
+{% endblock body%}
