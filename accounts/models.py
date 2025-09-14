@@ -12,10 +12,7 @@ class Country(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    image_profile = models.ImageField(upload_to='profiles/%Y/%m/%d/', null=True, blank=True)
-    email = models.EmailField()
+    image_profile = models.ImageField(upload_to='profiles/%Y/%m/%d/',null=True, blank=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True ,blank=True)
     city = models.CharField(max_length=50) 
     phone = models.CharField(max_length=15)
