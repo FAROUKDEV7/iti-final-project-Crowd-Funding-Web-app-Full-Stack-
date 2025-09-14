@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Projects , Categories
+from .form import ProjectForm
+from django.shortcuts import redirect, reverse  
 # Create your views here.
 
 # home page
@@ -30,5 +32,14 @@ def project_detail(request, slug):
 
 # create project page
 def create_project(request):
-    return render(request, 'pages/create_project.html')
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            myform = form.save(commit=False)
+            myform.owner = request.user
+            myform.save()
+            return redirect(reverse('projects'))
+    else:
+        form = ProjectForm()
+    return render(request, 'pages/create_project.html', {'form': form})
 

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load django_bootstrap5 %}
 
 {% block content %}
     <!-- Create Project Page -->
@@ -6,50 +7,10 @@
         <div class="container">
             <div class="form-container">
                 <h2 style="text-align: center; margin-bottom: 30px;">Create a New Project</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="project-title">Project Title</label>
-                        <input type="text" class="form-control" id="project-title" placeholder="Enter a compelling title for your project">
-                    </div>
-                    <div class="form-group">
-                        <label for="project-details">Project Details</label>
-                        <textarea class="form-control" id="project-details" rows="5" placeholder="Describe your project in detail"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-category">Category</label>
-                        <select class="form-control" id="project-category">
-                            <option>Select a category</option>
-                            <option>Technology</option>
-                            <option>Art & Culture</option>
-                            <option>Education</option>
-                            <option>Health</option>
-                            <option>Environment</option>
-                            <option>Food</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-images">Project Images</label>
-                        <input type="file" class="form-control" id="project-images" multiple>
-                        <small class="form-text">Upload multiple images to showcase your project</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-target">Funding Target (EGP)</label>
-                        <input type="number" class="form-control" id="project-target" placeholder="Enter your funding goal">
-                    </div>
-                    <div class="form-group">
-                        <label for="project-tags">Tags</label>
-                        <input type="text" class="form-control" id="project-tags" placeholder="Add tags separated by commas">
-                        <small class="form-text">e.g., sustainability, innovation, education</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-start">Start Date</label>
-                        <input type="date" class="form-control" id="project-start">
-                    </div>
-                    <div class="form-group">
-                        <label for="project-end">End Date</label>
-                        <input type="date" class="form-control" id="project-end">
-                    </div>
-                    <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Create Project</button>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Create Project</button>
                 </form>
             </div>
         </div>

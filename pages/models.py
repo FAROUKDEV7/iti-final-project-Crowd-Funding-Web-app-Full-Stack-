@@ -1,19 +1,21 @@
 from django.db import models
 from django.utils.text import slugify
 import datetime
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Projects(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
     title = models.CharField(max_length=100)
     description = models.TextField()
     image = models.ImageField(upload_to='projects/%Y/%m/%d/')
     funded_amount = models.DecimalField(max_digits=10, decimal_places=2)
     donatuion_amount = models.DecimalField(max_digits=10, decimal_places=2)
-    donors = models.IntegerField()
-    days_left = models.IntegerField()
-    about_project = models.TextField()
-    amount_goal = models.DecimalField(max_digits=10, decimal_places=2)
-    start_date = models.DateField(auto_now_add=True)
+    donors = models.IntegerField(blank=True, null=True)
+    days_left = models.IntegerField(blank=True, null=True)
+    about_project = models.TextField(blank=True, null=True)
+    amount_goal = models.DecimalField(max_digits=10, decimal_places=2 ,blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     category = models.ForeignKey('Categories', on_delete=models.CASCADE, related_name='projects')
     slug = models.SlugField(null=True, blank=True)
