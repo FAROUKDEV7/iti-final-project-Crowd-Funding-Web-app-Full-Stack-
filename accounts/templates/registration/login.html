@@ -23,7 +23,7 @@
         {# Assumes you set up the password_reset view in your URLConf #}
         <p style="text-align: center; padding-top: 20px;"><a href="{% url 'password_reset' %}" >Forget password?</a></p>
         <div style="text-align: center; margin-top: 20px;">
-            <p>Don't have an account? <a href="#" >Register Now</a></p>
+            <p>Don't have an account? <a href="{% url "accounts:signup" %}" >Register Now</a></p>
         </div>
         <!-- Facebook Login Button -->
         <div style="text-align: center; margin-top: 20px;">
