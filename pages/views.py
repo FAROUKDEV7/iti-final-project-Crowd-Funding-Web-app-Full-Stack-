@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Projects , Categories
 from .form import ProjectForm
 from django.shortcuts import redirect, reverse  
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 # home page
@@ -15,13 +16,14 @@ def index(request):
 
 
 # projects page
+@login_required
 def projects(request):
     context = {
         'projects': Projects.objects.all(),
         'categories': Categories.objects.all()
     }
     return render(request, 'pages/projects.html', context)
-
+@login_required
 # Project details page
 def project_detail(request, slug):
     context = {
