@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Projects , Categories
+from .models import Projects , Categories , Comment
 from .form import ProjectForm
 from django.shortcuts import redirect, reverse  
 from django.contrib.auth.decorators import login_required
@@ -30,10 +30,15 @@ def projects(request):
 @login_required
 # Project details page
 def project_detail(request, slug):
-    context = {
-        'project': Projects.objects.get(slug=slug),
-    }
-    return render(request, 'pages/project_detail.html', context)
+    project = Projects.objects.get(slug=slug)
+    comments = project.comments.all()
+    if request.method == "POST" and request.user.is_authenticated:
+        body = request.POST.get("body")
+        if body:
+            Comment.objects.create(project=project, user=request.user, body=body)
+            return redirect("project_detail", slug=project.slug)
+
+    return render(request, 'pages/project_detail.html', {'project' : project , "comments": comments})
 
 
 # create project page

@@ -45,36 +45,35 @@
                             {{ project.about_project }}
                         </p>
                     </div>
-                    
                     <div class="comments-section">
-                        <h2>Comments (12)</h2>
+                        <h2>Comments ({{comments.count}})</h2>
+                        {% for comment in comments %}                      
                         <div class="comment">
                             <div class="comment-header">
-                                <img src="https://placehold.co/40x40/3a0ca3/ffffff?text=A" alt="User">
                                 <div>
-                                    <div>Ahmed Mohamed</div>
-                                    <div style="font-size: 0.8rem; color: var(--gray);">3 days ago</div>
+                                    <div>{{ comment.user.username }} :</div>
                                 </div>
                             </div>
-                            <p>This is an amazing initiative! How can I get involved beyond donating?</p>
+                            <p>{{ comment.body }}</p>
                         </div>
-                        <div class="comment">
-                            <div class="comment-header">
-                                <img src="https://placehold.co/40x40/f72585/ffffff?text=S" alt="User">
-                                <div>
-                                    <div>Sara Ali</div>
-                                    <div style="font-size: 0.8rem; color: var(--gray);">5 days ago</div>
-                                </div>
-                            </div>
-                            <p>I've seen similar projects in other regions. The impact on farmers' livelihoods is tremendous!</p>
-                        </div>
+                        {% empty %}
+                            <div>No comments yet.</div>
+                        {% endfor %}
+ 
                         
                         <div style="margin-top: 30px;">
                             <h3>Leave a comment</h3>
                             <div class="form-group">
-                                <textarea class="form-control" rows="4" placeholder="Share your thoughts..."></textarea>
+                            {% if user.is_authenticated %}
+                                <form method="post">                                 
+                                    {% csrf_token %}
+                                    <textarea class="form-control" name="body" rows="3" placeholder="Write a comment..."></textarea><br>
+                                    <button type="submit" class="btn btn-primary">Add Comment</button>
+                                </form>
+                                {% else %}
+                                    <p><a href="{% url 'login' %}">Login</a> to comment.</p>
+                            {% endif %}
                             </div>
-                            <button class="btn btn-primary">Post Comment</button>
                         </div>
                     </div>
                 </div>
@@ -82,7 +81,7 @@
                 <div class="project-sidebar">
                     <h3>Project Creator</h3>
                     <div style="display: flex; align-items: center; margin: 20px 0;">
-                        <img src="https://placehold.co/50x50/4361ee/ffffff?text=M" alt="Creator" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
+                        <img src="{{project.image.url}}" alt="Creator" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
                         <div>
                             <div style="font-weight: bold;">{{project.owner}}</div>
                             <div>{{project.title}}</div>
@@ -96,3 +95,5 @@
 </body>
 </html>
 {% endblock content %}
+
+
