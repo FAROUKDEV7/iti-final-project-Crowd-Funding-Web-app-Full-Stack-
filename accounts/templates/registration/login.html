@@ -1,6 +1,6 @@
 {% extends "base_generic_login.html" %}
 {% load django_bootstrap5 %}
-
+{% load socialaccount %}
 {% block body %}
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
@@ -27,9 +27,9 @@
         </div>
         <!-- Facebook Login Button -->
         <div style="text-align: center; margin-top: 20px;">
-            <button type="button" class="btn btn-outline" style="width: 100%;">
+            <a href="{% provider_login_url 'facebook' %}" type="submit" class="btn btn-outline" style="width: 100%;">
                 <i class="fab fa-facebook-f" style="margin-right: 10px;"></i> Login with Facebook
-            </button>
+            </a>
         </div>
     </form>
 
