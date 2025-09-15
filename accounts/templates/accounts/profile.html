@@ -44,11 +44,10 @@
                         <button type="submit" class="btn btn-primary" style="margin-top : 20px;">Save Changes</button>
                     </form>
                     
-                    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--light-gray);">
-                        <h3 style="color: var(--danger);">Danger Zone</h3>
-                        <p>Once you delete your account, there is no going back. Please be certain.</p>
-                        <button type="button" class="btn btn-outline" style="border-color: var(--danger); color: var(--danger); margin-top: 15px;">Delete Account</button>
-                    </div>
+                    <form method="post" action="{% url 'accounts:delete_profile' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline" style="border-color: var(--danger); color: var(--danger); margin-top: 15px;">Delete Profile</button>
+                    </form>
                 </div>
             </div>
         </div>

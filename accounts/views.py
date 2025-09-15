@@ -1,7 +1,10 @@
-from django.shortcuts import render , redirect , reverse 
+from django.shortcuts import render , redirect , reverse ,get_object_or_404
 from .forms import SignUpForm , UserForm , ProfileForm
 from django.contrib.auth import authenticate , login
 from .models import Profile
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
+
 
 
 def signup(request):
@@ -37,3 +40,17 @@ def profile(request):
         userform = UserForm(instance=request.user)
         profileform= ProfileForm(instance=profile)
     return render(request , 'accounts/profile.html' , {'profile' : profile , 'userform' : userform , 'profileform' : profileform})
+
+
+@login_required
+def delete_profile(request):
+    profile = get_object_or_404(Profile, user=request.user)
+    if request.method == "POST":
+        profile.delete()   
+        return redirect(reverse("index"))  
+    return redirect(reverse("deleted_profile"))
+
+def deleted_profile(request):
+    return render(request , 'accounts/deleted_profile.html')
+
+  

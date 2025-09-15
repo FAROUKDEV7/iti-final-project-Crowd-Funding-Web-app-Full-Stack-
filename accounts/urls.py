@@ -7,6 +7,8 @@ app_name = 'accounts'
 urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('profile/',views.profile , name='profile'),
+    path('deleted_profile',views.deleted_profile,name="deleted_profile"),
+    path("delete/", views.delete_profile, name="delete_profile"),
     path(
     "reset_password/",
     auth_views.PasswordResetView.as_view(

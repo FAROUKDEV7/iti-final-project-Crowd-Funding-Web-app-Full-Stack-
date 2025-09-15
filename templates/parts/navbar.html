@@ -20,7 +20,11 @@
                 </ul>
                 <div class="user-actions" id="user-actions">
                     {% if request.user.is_authenticated %}
-                        <a href="{% url "accounts:profile" %}" style="text-decoration: none ; color: #4361ee; font-size:23px; cursor: pointer; ">Hello, {{user}}</a>
+                        {% if user.profile %}
+                            <a href="{% url "accounts:profile" %}" style="text-decoration: none ; color: #4361ee; font-size:23px; cursor: pointer; ">Hello, {{user}}</a>
+                        {% else %}
+                            <a href="{% url "accounts:deleted_profile" %}" style="text-decoration: none ; color: #4361ee; font-size:23px; cursor: pointer; ">Hello, {{user}}</a>
+                        {% endif %}
                     {% else %}
                         <a href="{% url "login" %}" class="btn btn-outline">Login</a>
                         <a href="{% url "accounts:signup" %}" class="btn btn-primary">Sign Up</a>
