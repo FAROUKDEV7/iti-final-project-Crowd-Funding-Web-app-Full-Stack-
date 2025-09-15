@@ -3,7 +3,7 @@ from .forms import SignUpForm , UserForm , ProfileForm
 from django.contrib.auth import authenticate , login
 from .models import Profile
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import get_user_model
+from django.db.models import Sum
 
 
 
@@ -26,6 +26,8 @@ def signup(request):
 # profile page
 def profile(request):
     profile = Profile.objects.get(user=request.user)
+    user_projects_count = request.user.projects.count()
+    total_donations = request.user.projects.aggregate(Sum("donatuion_amount"))["donatuion_amount__sum"] or 0
     
     if request.method == 'POST':
         userform = UserForm(request.POST,instance=request.user)
@@ -39,7 +41,7 @@ def profile(request):
     else:
         userform = UserForm(instance=request.user)
         profileform= ProfileForm(instance=profile)
-    return render(request , 'accounts/profile.html' , {'profile' : profile , 'userform' : userform , 'profileform' : profileform})
+    return render(request , 'accounts/profile.html' , {'profile' : profile , 'userform' : userform , 'profileform' : profileform,"projects_count": user_projects_count,"total_donations": total_donations})
 
 
 @login_required
