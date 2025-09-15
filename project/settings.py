@@ -42,6 +42,9 @@ INSTALLED_APPS = [
 
     # bootstrap5
     "django_bootstrap5",
+
+    # django filter
+    'django_filters',
 ]
 
 MIDDLEWARE = [

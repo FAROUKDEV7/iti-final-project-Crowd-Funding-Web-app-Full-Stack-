@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load django_bootstrap5 %}
 
 {% block content %}
     <!-- Projects Page -->
@@ -9,36 +10,10 @@
                 <p>Discover projects that inspire you</p>
             </div>
             
-            <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
-                <div style="flex: 1; max-width: 300px;">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search projects...">
-                    </div>
-                </div>
-                <div style="flex: 1; max-width: 200px;">
-                    <div class="form-group">
-                        <select class="form-control">
-                            <option>All Categories</option>
-                            <option>Technology</option>
-                            <option>Art & Culture</option>
-                            <option>Education</option>
-                            <option>Health</option>
-                            <option>Environment</option>
-                            <option>Food</option>
-                        </select>
-                    </div>
-                </div>
-                <div style="flex: 1; max-width: 200px;">
-                    <div class="form-group">
-                        <select class="form-control">
-                            <option>Sort by: Newest</option>
-                            <option>Sort by: Oldest</option>
-                            <option>Sort by: Most Funded</option>
-                            <option>Sort by: Least Funded</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+            <form style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; margin-bottom: 30px;">
+                {% bootstrap_form myfilter.form %}
+                <input type="submit" value="search" class="btn btn-primary" style="height: 60px; width: 100px;">
+            </form>
             
             <div class="projects-grid">
                 {% for project in projects %}
