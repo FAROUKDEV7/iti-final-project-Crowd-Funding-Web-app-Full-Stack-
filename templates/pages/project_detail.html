@@ -33,8 +33,28 @@
                             <div>days left</div>
                         </div>
                     </div>
-                    
-                    {% comment %} <button class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem;" onclick="showPage('donation')">Donate Now</button> {% endcomment %}
+                        <!-- start button by paypal -->
+                        <script src="https://www.paypal.com/sdk/js?client-id=AVT9wnGoDD2sEK1SzB6CldJ_VwBxvzBdkduXbzUKkWIn4ajhzHjoe6e3xQB10RgtIn2a7y43JPNp4CAG&currency=USD"></script>
+                        <div id="paypal-button-container"></div>
+                        <script>
+                            paypal.Buttons({
+                            createOrder: function(data, actions) {
+                                return actions.order.create({
+                                purchase_units: [{
+                                    amount: {
+                                    value: '{{project.funded_amount}}' 
+                                    }
+                                }]
+                                });
+                            },
+                            onApprove: function(data, actions) {
+                                return actions.order.capture().then(function(details) {
+                                alert('تم الدفع بنجاح بواسطة: ' + details.payer.name.given_name);
+                                });
+                            }
+                            }).render('#paypal-button-container');
+                        </script>
+                        <!-- end button by paypal -->
                     
                     <div style="margin-top: 40px;">
                         <h2>About this project</h2>

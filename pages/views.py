@@ -54,3 +54,6 @@ def create_project(request):
         form = ProjectForm()
     return render(request, 'pages/create_project.html', {'form': form})
 
+
+
+
